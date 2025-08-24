@@ -19,5 +19,10 @@ describe('Student Details Form',()=> {
         cy.get('input[name="email"]').type('leodas5@example.com')
         cy.wait(2000)
         cy.get('button[type="submit"]').click()
+        cy.wait(3000)
+        cy.url().should('include', '/student-details')
+        cy.get('h2').should('contain','Student Details')
+
+        cy.get('input[name="name"]').should('have.value', '')
     })
 })
